@@ -19,6 +19,10 @@ public class Iplprojectleague {
 		BufferedReader matchCol = null;
 	
 		String column ="";
+		
+		// System.out.println(totalTeams);
+		Map<String,Integer> noOfMatchesWonByATeam = new HashMap<>();
+		
 		Map<String,Integer> noOfMatchesPerYear = new HashMap<>();
 		try 
 		{
@@ -28,23 +32,57 @@ public class Iplprojectleague {
 
 				String[] row = column.split(",");
 				
-			
+			//
+				int length= (row.length);
 				
-	
-				
-				if(noOfMatchesPerYear.containsKey(row[1])) {
+			//
+				for (int i =0; i<length ; i++) {
+					int x=i;
 					
-						noOfMatchesPerYear.put(row[1], noOfMatchesPerYear.get(row[1])+1);
-
+					if(i==1) {
+						if(noOfMatchesPerYear.containsKey(row[i])) {
 						
-					}
-				else if(row[1] != "Season") {
+							noOfMatchesPerYear.put(row[i], noOfMatchesPerYear.get(row[i])+1);
+						
+						}
+						else if (row[i] != "Season"){
 					
-						noOfMatchesPerYear.put(row[1], 1);
-					}		
+							noOfMatchesPerYear.put(row[i], 1);
+						}	;
+					}
+				
+				//
+				//
+					if((x ==4 ) || (x == 5)) {
+						
+						if (noOfMatchesWonByATeam.containsKey(row[x])) {
+							
+						}
+						else if((row[i] != "team1") && (row[i]!="team2")) {
+							
+								
+							noOfMatchesWonByATeam.put(row[i],0);
+								
+						};
+					
+					}	
+					if (x == 10) {
+						
+						if(noOfMatchesWonByATeam.containsKey(row[i])) {
+							noOfMatchesWonByATeam.put(row[i], noOfMatchesWonByATeam.get(row[i])+1);
+						}
+					}
+					
+					
+						
+				
+					
+				 
+				//
+				
  			}
-		
-		}
+			}
+			}
 		catch(Exception E) {
 			E.printStackTrace();
 		}
@@ -59,6 +97,8 @@ public class Iplprojectleague {
 		
 		System.out.println(noOfMatchesPerYear);
 		
+		// second task
+		System.out.println(noOfMatchesWonByATeam);
 		
 		
 	}
