@@ -302,8 +302,20 @@ public class Main {
 				economy = totalRunsConceded.get(bowler)/bowlersOvers.get(bowler);
 				mostEconomicalBowler2015.put(bowler, economy);
 				}
+			
+			List<Map.Entry<String, Double>> sortingMostEconomicalBowler2015 = new LinkedList<Map.Entry<String, Double>>(mostEconomicalBowler2015.entrySet());
+			Collections.sort(sortingMostEconomicalBowler2015, new Comparator<Map.Entry<String, Double>>(){
+					@Override
+					public int compare(Map.Entry<String, Double> o1, Map.Entry<String, Double> o2) {
+				return o1.getValue().compareTo(o2.getValue());
+			}
+			});
+			System.out.println();
+			System.out.println("PROBLEM - 4");
+			
 			System.out.println("Economy of bowlers in year 2015");
-			 System.out.println(mostEconomicalBowler2015);	
+			
+			System.out.println(sortingMostEconomicalBowler2015.get(0));
 			}
 			
 			public static void getToatalRunsScoredByEveryPlayer(List<Deliveries> deliveriesData) {
@@ -318,6 +330,8 @@ public class Main {
 						runsByEveryPlayer.put(batsmanName, runs);
 					}
 				}
+				System.out.println();
+				System.out.println("PROBLEM - 5");
 				System.out.println("players total score over all the ipl seasons");
 				runsByEveryPlayer.forEach((key,value)->{
 					System.out.println(key +" : "+value);
