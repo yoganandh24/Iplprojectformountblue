@@ -1,6 +1,6 @@
 package com.ipldata;
 
-public class Matches {
+public class Match {
 	
 	private int matchId;
 	private int season;

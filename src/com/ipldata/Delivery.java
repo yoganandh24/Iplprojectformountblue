@@ -1,6 +1,6 @@
 package com.ipldata;
 
-public class Deliveries {
+public class Delivery {
 	private int matchId;
 	private int innings;
 	private String battingTeam;
